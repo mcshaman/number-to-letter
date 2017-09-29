@@ -2,35 +2,29 @@
  * Module Dependencies
  */
 
-var alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-var base = alphabet.length;
-
-/**
- * Export `ntol`
- */
-
-module.exports = ntol;
+const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+      BASE = ALPHABET.length
 
 /**
  * Alpha
  *
- * @param {Number} n
+ * @param {Number} pNumber - Number
+ * @param {boolean} pLowerCase - Lowercase
  * @return {String}
  */
 
-function ntol(n) {
-    var digits = [];
-
-    do {
-      var v = n % base;
-      digits.push(v);
-      n = Math.floor(n / base);
-    } while (n-- > 0);
-
-    var chars = [];
-    while (digits.length) {
-        chars.push(alphabet[digits.pop()]);
+module.exports = function ntol(pNumber, pLowerCase) {
+    let alphabet = ALPHABET
+    if (pLowerCase) {
+        alphabet = ALPHABET.toLowerCase()
     }
 
-    return chars.join('');
-};
+    const digits = []
+    let number = pNumber
+    while (number >= 0) {
+        digits.push(number % BASE)
+        number = Math.floor(number / BASE) - 1
+    }
+
+    return digits.map(pDigit => alphabet[pDigit]).reverse().join('')
+}

@@ -1,9 +1,12 @@
 {
   "name": "number-to-letter",
-  "version": "1.0.1",
-  "description": "Simple utility to convert a number to a letter",
+  "version": "1.0.2",
+  "description": "Simple utility to convert a number to letters",
   "keywords": [],
   "author": "Matthew Mueller <mattmuelle@gmail.com>",
+  "contributors": [
+    "McShaman (http://www.mcshaman.com)"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/MatthewMueller/number-to-letter.git"
